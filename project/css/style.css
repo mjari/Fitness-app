@@ -1,0 +1,12 @@
+body {
+	font-family: arial;
+}
+header {
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	background-color: purple;
+	color: white;
+	font-size: 25px;
+	padding: 10px;
+}
