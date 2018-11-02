@@ -1,26 +1,30 @@
 function calculateBMI(height, weight) {
-	if(height === 0) {
-		return 0;
+	if(height <= 0 || weight <= 0) {
+		return "Ugyldige verdier!";
 	}
-	return weight / ((height * height) / 100);
-}
-function checkBMICategory(bmi) {
+	height /= 100;
+	const bmi = Math.round(weight / (height * height) * 10) / 10;
+	let categoryText = "";
 	if(bmi < 18.5) {
-		return "Undervektig";
+		categoryText = "Undervektig";
 	}
 	else if(bmi >= 18.5 && bmi < 25) {
-		return "Normalvekt";
+		categoryText = "Normalvekt";
 	}
 	else if(bmi >= 25 && bmi < 30) {
-		return "Overvektig";
+		categoryText = "Overvektig";
 	}
 	else if(bmi >= 30 && bmi < 35) {
-		return "Moderat fedme";
+		categoryText = "Moderat fedme";
 	}
 	else if(bmi >= 35 && bmi < 40) {
-		return "Alvorlig fedme";
+		categoryText = "Alvorlig fedme";
 	}
 	else {
-		return "Svært alvorlig fedme";
+		categoryText = "Svært alvorlig fedme";
 	}
+	return "BMI: " + bmi + ". " + categoryText;
+}
+function getBMI() {
+	document.getElementById("result").innerHTML = calculateBMI(document.getElementById("height-input").value, document.getElementById("weight-input").value);
 }
